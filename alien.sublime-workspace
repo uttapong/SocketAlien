@@ -1,0 +1,221 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/BSI/Dropbox/htdocs/laravel/app/models/Openday.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeCommand.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/nikic/php-parser/doc/2_Usage_of_basic_components.markdown",
+		"/Users/BSI/Dropbox/htdocs/laravel/app/config/app.php",
+		"/Users/BSI/Documents/test_latex.tex",
+		"/Users/BSI/Dropbox/htdocs/laravel/composer.json",
+		"/Users/BSI/Documents/alien_test.py",
+		"/Users/BSI/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/Davzie/LaravelBootstrap/Posts/PostsRepository.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/Davzie/LaravelBootstrap/Posts/Posts.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/Davzie/LaravelBootstrap/Uploads/UploadsRepository.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/views/layouts/interface-edit.blade.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/views/partials/images.blade.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/Davzie/LaravelBootstrap/Core/EloquentBaseModel.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/Davzie/LaravelBootstrap/Core/EloquentBaseRepository.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/artisan",
+		"/Users/BSI/Dropbox/htdocs/laravel/app/config/session.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/app/config/queue.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/app/config/view.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/app/controllers/BaseController.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/bootstrap/start.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/public_html/.htaccess",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/Davzie/LaravelBootstrap/Uploads/Uploads.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/public_html/index.php",
+		"/Users/BSI/Dropbox/htdocs/laravel/vendor/davzie/laravel-bootstrap/src/Davzie/LaravelBootstrap/Settings/Settings.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"timeout",
+			"["
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "alien.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"app",
+				"laravel/app/config/app.php"
+			],
+			[
+				"compos",
+				"laravel/composer.json"
+			],
+			[
+				"compo",
+				"laravel/composer.json"
+			],
+			[
+				"start",
+				"laravel/bootstrap/start.php"
+			],
+			[
+				"base",
+				"laravel/app/controllers/BaseController.php"
+			],
+			[
+				"view",
+				"laravel/app/config/view.php"
+			],
+			[
+				"queue",
+				"laravel/app/config/queue.php"
+			],
+			[
+				"session",
+				"laravel/app/config/session.php"
+			],
+			[
+				"arti",
+				"laravel/artisan"
+			],
+			[
+				"index",
+				"laravel/public_html/index.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 178.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
