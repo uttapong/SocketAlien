@@ -23,6 +23,7 @@ var server = net.createServer(function(c) {
   //socket.emit('news', { hello: 'world' });
   
     c.on('data', function(data) {
+    console.log("listening for socket connection.");
     console.log(data.toString());
 
     //parse xml
@@ -33,27 +34,30 @@ var server = net.createServer(function(c) {
     var alltag=[];
 
     for(var i=0;i<lines.length;i++){
+
       line = lines[i];
-      if(line=="")break;
+      if(line==""||line=="\u0000"||line=="(No Tags)"||line==undefined)break;
 
       var lineData=line.split(',');
-      console.log(lineData);
-      console.log('-----line data-------');
-      console.log(lineData[0]);
-      tags=lineData[0].split(":");
-      tag=tags[1];
+      if(lineData[1]==undefined)break;
+      if(lineData){
+        console.log(lineData);
+        console.log('-----line data-------');
+        console.log(lineData[1]);
+        tags=lineData[0].split(":");
+        tag=tags[1];
 
-      
-      discs=lineData[1].split(":");
-      dis=discs[1];
+        
+        discs=lineData[1].split(":");
+        dis=discs[1];
 
-      counts=lineData[3].split(":");
-      count=counts[1];
+        counts=lineData[3].split(":");
+        count=counts[1];
 
-      ants=lineData[4].split(":");
-      ant=ants[1];
-      alltag.push(ant);
-
+        ants=lineData[4].split(":");
+        ant=ants[1];
+        alltag.push(ant);
+      }
       
 
     }
