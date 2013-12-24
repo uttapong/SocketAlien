@@ -1,0 +1,109 @@
+<html>
+<head>
+<script src="js/jquery.min.js"></script>
+<script src="js/jcanvas.min.js"></script>
+<script src="js/jquery.transit.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    $('#data').html(data);
+
+    alltag=data.split(",");
+    $.each(alltag, function( i, val ) {
+	  blink($('#antenna'+val));
+	});
+
+   //blink($('#antenna'+data));
+    socket.emit('my other event', { my: 'data' });
+  });
+$(document).ready(function(){
+	
+	
+});
+  
+function blink(ele){
+	//alert(ele.position().top);
+	var blink=$('<canvas class="blink" width="100" height="100" ></canvas>').appendTo('body');
+
+	blink.drawArc({
+  	fillStyle: "Red",
+  	x:50,
+  	y:50,
+  	radius: 50
+  });
+
+	interval=80;
+	blink.css('left',ele.position().left-50);
+	blink.css('top',ele.position().top-50);
+	blink.show();
+	blink.transition({ scale: 2,delay:interval}).transition({ scale: 1,delay:interval}).transition({ scale: 2,delay:interval}).transition({ scale: 1,delay:interval});
+	setTimeout(function(){ blink.hide() },2500);
+}
+</script>
+<style>
+html{
+	font-family: Verdana, Sans Serif;
+}
+body{
+	background: url('images/map.jpg') top left no-repeat;
+}
+.blink{
+	/* border: 1px solid #444; */
+	position: absolute;
+	top: 200px;
+	left: 300px;
+	z-index: -99;
+	width:100px;
+	height: 100px;
+	display: none;
+}
+#antenna0{
+	width: 100px;
+	height: 20px;
+	background: black;
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	color: #fff;
+	padding: 5px;
+	-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+#antenna1{
+	width: 100px;
+	height: 20px;
+	background: black;
+	position: absolute;
+	top: 200px;
+	left: 800px;
+	color: #fff;
+	padding: 4px;
+	-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+#data{
+	-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+background-color: #BBB;
+width: 100%;
+height: 60px;
+font-size: 2rem;
+color: #111;
+text-align: center;
+padding: 5px;
+}
+</style>
+</head>
+<body>
+<p id="data"></p>
+
+
+<div id="antenna0"> Antenna 0</div>
+<div id="antenna1"> Antenna 1</div>
+</body>
+</html>
