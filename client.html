@@ -81,7 +81,16 @@ function drawPath(obj){
 function animate(obj){
 	
 
+
 	if(current){
+
+	//check if it's same antenna
+	if(obj.x==current.x){
+		return;
+	}
+
+
+
 	start=current.id;
 	end=obj.id;
 	var degree;
