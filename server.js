@@ -127,7 +127,7 @@ function handler (req, res) {
   }
   else
   {
-    fs.readFile(__dirname + '/index.html',
+    fs.readFile(__dirname + '/client.html',
     function (err, data) {
       if (err) {
         res.writeHead(500);
