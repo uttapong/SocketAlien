@@ -16,26 +16,26 @@
   function initPlot(){
   	ant0.name='VN';
   	ant0.id='antenna0';
-  	ant0.x=317;
-  	ant0.y=220;
+  	ant0.x=360;
+  	ant0.y=253;
   	ant0.color='#ff0000';
 
   	ant1.name='SG';
   	ant1.id='antenna1';
-  	ant1.x=268;
-  	ant1.y=424;
+  	ant1.x=305;
+  	ant1.y=487;
   	ant1.color='#33ff00';
 
   	ant2.name='MY';
   	ant2.id='antenna2';
-  	ant2.x=220;
-  	ant2.y=370;
+  	ant2.x=250;
+  	ant2.y=430;
   	ant2.color='#dd00ff';
 
   	ant3.name='TH';
   	ant3.id='antenna3';
-  	ant3.x=202;
-  	ant3.y=244;
+  	ant3.x=233;
+  	ant3.y=278;
   	ant3.color='#00aeff';
 
   	ants=[ant0,ant1,ant2,ant3];
@@ -89,10 +89,31 @@ function drawPath(obj){
 }
 function animate(obj){
 	
+	
+	end=obj.id;
+	animated="truck";
+	var degree;
+
+
+	if(end=='antenna0'){
+		degree=-190;
+		animated='plane';
+
+		$('.'+animated).css('left',360);
+		$('.'+animated).css('top',253);
+		$('.'+animated+'>img').transition({ rotate: degree+'deg' });
+		$('.plane').transition({ x:200, y: -313},0,'ease');
+
+		$('.plane').fadeIn().transition({ x:0, y: 0 },3000,'ease').fadeOut();
+
+		current=obj;
+		return;
+	}
 
 
 	if(current){
 
+	start=current.id;
 	//check if it's same antenna
 	if(obj.x==current.x){
 		return;
@@ -100,10 +121,7 @@ function animate(obj){
 
 
 
-	start=current.id;
-	end=obj.id;
-	animated="truck";
-	var degree;
+	
 	if(start=='antenna0'&&end=='antenna1'){
 		degree=0; 
 		animated="cargo";
@@ -130,6 +148,7 @@ function animate(obj){
 		degree=0; 
 		animated="truck";
 	}
+
 
 	/*
 
@@ -292,8 +311,8 @@ button.resetpath:hover{
 <div class='cargo'><img src="images/cargo.png" /></div>
 <div class='truck'><img src="images/truck.png" /></div>
 <div class='train'><img src="images/train.png" /></div>
-<div id="right-panel">
-<p><button class='resetpath' onclick="resetPath();">Reset Path</button></p>
+<div id="right-panel" style="display:none;">
+<p ><button class='resetpath' onclick="resetPath();">Reset Path</button></p>
 </div>
 </body>
 </html>
