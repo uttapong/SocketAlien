@@ -89,7 +89,13 @@ function drawPath(obj){
 }
 function animate(obj){
 	
-	
+	if(current){
+		//check if it's same antenna
+		if(obj.x==current.x){
+			return;
+		}
+	}
+
 	end=obj.id;
 	animated="truck";
 	var degree;
@@ -113,41 +119,41 @@ function animate(obj){
 
 	if(current){
 
-	start=current.id;
-	//check if it's same antenna
-	if(obj.x==current.x){
-		return;
-	}
+		start=current.id;
+		//check if it's same antenna
+		if(obj.x==current.x){
+			return;
+		}
 
 
 
-	
-	if(start=='antenna0'&&end=='antenna1'){
-		degree=0; 
-		animated="cargo";
-	}
-	if(start=='antenna1'&&end=='antenna0'){
-		degree=0; 
-		animated="cargo";
-	}
+		
+		if(start=='antenna0'&&end=='antenna1'){
+			degree=0; 
+			animated="cargo";
+		}
+		if(start=='antenna1'&&end=='antenna0'){
+			degree=0; 
+			animated="cargo";
+		}
 
-	if(start=='antenna1'&&end=='antenna2'){
-		degree=0; 
-		animated="train";
-	}
-	if(start=='antenna2'&&end=='antenna1'){
-		degree=0; 
-		animated="train";
-	}
+		if(start=='antenna1'&&end=='antenna2'){
+			degree=0; 
+			animated="train";
+		}
+		if(start=='antenna2'&&end=='antenna1'){
+			degree=0; 
+			animated="train";
+		}
 
-	if(start=='antenna2'&&end=='antenna3'){
-		degree=0; 
-		animated="truck";
-	}
-	if(start=='antenna3'&&end=='antenna2'){
-		degree=0; 
-		animated="truck";
-	}
+		if(start=='antenna2'&&end=='antenna3'){
+			degree=0; 
+			animated="truck";
+		}
+		if(start=='antenna3'&&end=='antenna2'){
+			degree=0; 
+			animated="truck";
+		}
 
 
 	/*
