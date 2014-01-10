@@ -1,6 +1,5 @@
 var net = require('net');
 var url = require('url');
-var libxmljs = require("libxmljs");
 var app = require('http').createServer(handler)
   , io = require('socket.io').listen(app)
   , fs = require('fs')
@@ -8,7 +7,7 @@ app.listen(80);
 var socketm=null
 
 
-var server = net.createServer(function(c) {
+var server = net.createServer(function(c) { 
 
   console.log('server connected');
   c.on('end', function() {
@@ -21,7 +20,7 @@ var server = net.createServer(function(c) {
   //socket.emit('news', { hello: 'world' });
   
     c.on('data', function(data) {
-    console.log("listening for socket connection.");
+    console.log("incoming data from socket connection.");
     console.log(data.toString());
 
     //parse xml
@@ -115,13 +114,28 @@ function handler (req, res) {
      res.writeHead(200, {'Content-Type': 'image/jpg' });
      res.end(jsfile, "utf-8");
   }
-  if (action == '/images/plotted.jpg') {
-     var jsfile = fs.readFileSync('./images/plotted.jpg');
-     res.writeHead(200, {'Content-Type': 'image/jpg' });
+  if (action == '/images/plotted.png') {
+     var jsfile = fs.readFileSync('./images/plotted.png');
+     res.writeHead(200, {'Content-Type': 'image/png' });
      res.end(jsfile, "utf-8");
   }
   if (action == '/images/plane.png') {
      var jsfile = fs.readFileSync('./images/plane.png');
+     res.writeHead(200, {'Content-Type': 'image/png' });
+     res.end(jsfile, "utf-8");
+  }
+  if (action == '/images/truck.png') {
+     var jsfile = fs.readFileSync('./images/truck.png');
+     res.writeHead(200, {'Content-Type': 'image/png' });
+     res.end(jsfile, "utf-8");
+  }
+  if (action == '/images/train.png') {
+     var jsfile = fs.readFileSync('./images/train.png');
+     res.writeHead(200, {'Content-Type': 'image/png' });
+     res.end(jsfile, "utf-8");
+  }
+  if (action == '/images/cargo.png') {
+     var jsfile = fs.readFileSync('./images/cargo.png');
      res.writeHead(200, {'Content-Type': 'image/png' });
      res.end(jsfile, "utf-8");
   }

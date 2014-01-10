@@ -14,28 +14,28 @@
   var count=0;
 
   function initPlot(){
-  	ant0.name='Antenna0';
+  	ant0.name='VN';
   	ant0.id='antenna0';
-  	ant0.x=140;
-  	ant0.y=262;
+  	ant0.x=317;
+  	ant0.y=220;
   	ant0.color='#ff0000';
 
-  	ant1.name='Antenna1';
+  	ant1.name='SG';
   	ant1.id='antenna1';
-  	ant1.x=480;
-  	ant1.y=90;
+  	ant1.x=268;
+  	ant1.y=424;
   	ant1.color='#33ff00';
 
-  	ant2.name='Antenna2';
+  	ant2.name='MY';
   	ant2.id='antenna2';
-  	ant2.x=370;
-  	ant2.y=270;
+  	ant2.x=220;
+  	ant2.y=370;
   	ant2.color='#dd00ff';
 
-  	ant3.name='Antenna3';
+  	ant3.name='TH';
   	ant3.id='antenna3';
-  	ant3.x=654;
-  	ant3.y=240;
+  	ant3.x=202;
+  	ant3.y=244;
   	ant3.color='#00aeff';
 
   	ants=[ant0,ant1,ant2,ant3];
@@ -44,6 +44,8 @@
 	  $('body').append("<div id='"+ant.id+"' style='left:"+ant.x+"px;top:"+ant.y+"px;' class='ant'>"+ant.name+"</div>");
 	});
 
+	//$('.plane').show();
+
   }
 
   socket.on('news', function (data) {
@@ -51,12 +53,19 @@
     $('#data').html(data);
 
     alltag=data.split(",");
-    $.each(alltag, function( i, val ) {
+
+    //blink first detected antenna
+    //console.log(alltag);
+    blink(ants[alltag[0]]);
+	drawPath(ants[alltag[0]]);
+	animate(ants[alltag[0]]);
+
+    /*$.each(alltag, function( i, val ) {
 	  blink(ants[val]);
 	  drawPath(ants[val]);
 	  animate(ants[val]);
 	  
-	});
+	});*/
 
    //blink($('#antenna'+data));
     socket.emit('my other event', { my: 'data' });
@@ -93,8 +102,38 @@ function animate(obj){
 
 	start=current.id;
 	end=obj.id;
+	animated="truck";
 	var degree;
-	if(start=='antenna0'&&end=='antenna1')degree=0; 
+	if(start=='antenna0'&&end=='antenna1'){
+		degree=0; 
+		animated="cargo";
+	}
+	if(start=='antenna1'&&end=='antenna0'){
+		degree=0; 
+		animated="cargo";
+	}
+
+	if(start=='antenna1'&&end=='antenna2'){
+		degree=0; 
+		animated="train";
+	}
+	if(start=='antenna2'&&end=='antenna1'){
+		degree=0; 
+		animated="train";
+	}
+
+	if(start=='antenna2'&&end=='antenna3'){
+		degree=0; 
+		animated="truck";
+	}
+	if(start=='antenna3'&&end=='antenna2'){
+		degree=0; 
+		animated="truck";
+	}
+
+	/*
+
+	
 	if(start=='antenna0'&&end=='antenna2')degree=45;
 	if(start=='antenna0'&&end=='antenna3')degree=40; 
 	if(start=='antenna1'&&end=='antenna0')degree=-180; 
@@ -107,21 +146,39 @@ function animate(obj){
 	if(start=='antenna3'&&end=='antenna1')degree=-90; 
 	if(start=='antenna3'&&end=='antenna2')degree=-100;  
 
-	$('.plane').css('left',current.x-20);
-	$('.plane').css('top',current.y-20);
+	*/
 
-	posx=obj.x-current.x;
-	posy=obj.y-current.y;
+		$('.'+animated).css('left',current.x-20);
+		$('.'+animated).css('top',current.y-20);
 
-	console.log(obj.x);
-	console.log(obj.y);
- console.log("----------------");
-	console.log(posx);
-	console.log(posy);
+		
 
-	$('.plane>img').transition({ rotate: degree+'deg' });
-	$('.plane').transition({ x:0, y: 0 },0,'ease');
-	$('.plane').fadeIn().transition({ x:posx, y: posy },3000,'ease').fadeOut();
+		posx=obj.x-current.x;
+		posy=obj.y-current.y;
+
+		console.log(obj.x);
+		console.log(obj.y);
+	 console.log("----------------");
+		console.log(posx);
+		console.log(posy);
+
+		$('.'+animated+'>img').transition({ rotate: degree+'deg' });
+		$('.'+animated).transition({ x:0, y: 0 },0,'ease');
+
+		if(end!='antenna3'){
+			$('.'+animated).fadeIn().transition({ x:posx, y: posy },3000,'ease').fadeOut();
+		}
+		else{
+			$('.'+animated).fadeIn().transition({ x:posx, y: posy },3000,'ease').fadeOut();
+			$('.plane').transition({ x:202, y: 244},0,'ease');
+			//$('.plane').css('left',posx);
+			//$('.plane').css('top',posy);
+			$('.plane').transition({ scale: 1, delay: 4800 }).fadeIn().transition({ x:400, y: -60 },3000,'ease').fadeOut()
+		}
+
+		
+
+
 	}
 	current=obj;
 	
@@ -130,6 +187,7 @@ function resetPath(){
 
 	$('.path').clearCanvas();
 	$('.plane').hide();
+	current=null;
 }
 function blink(obj){
 	//alert(ele.position().top);
@@ -157,7 +215,7 @@ html{
 	font-family: Verdana, Sans Serif;
 }
 body{
-	background: url('images/plotted.jpg') top left no-repeat;
+	background: url('images/plotted.png') top left no-repeat;
 }
 .blink{
 	/* border: 1px solid #444; */
@@ -170,7 +228,7 @@ body{
 	display: none;
 }
 .ant{
-	width: 100px;
+	width: 40px;
 	height: 20px;
 	background: black;
 	position: absolute;
@@ -181,32 +239,7 @@ body{
 border-radius: 5px;
 font-size: 1rem;
 }
-#antenna0{
-	width: 100px;
-	height: 20px;
-	background: black;
-	position: absolute;
-	top: 200px;
-	left: 200px;
-	color: #fff;
-	padding: 5px;
-	-webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-}
-#antenna1{
-	width: 100px;
-	height: 20px;
-	background: black;
-	position: absolute;
-	top: 200px;
-	left: 800px;
-	color: #fff;
-	padding: 4px;
-	-webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-}
+
 #data{
 	-webkit-border-radius: 3px;
 -moz-border-radius: 3px;
@@ -244,7 +277,7 @@ button.resetpath:hover{
 	
 	background-color: #0073ff;
 }
-.plane{
+.plane,.cargo,.truck,.train{
 	height: 40px;
 	width: 40px;
 	position: absolute;
@@ -256,6 +289,9 @@ button.resetpath:hover{
 <body>
 <p id="data"></p>
 <div class='plane'><img src="images/plane.png" /></div>
+<div class='cargo'><img src="images/cargo.png" /></div>
+<div class='truck'><img src="images/truck.png" /></div>
+<div class='train'><img src="images/train.png" /></div>
 <div id="right-panel">
 <p><button class='resetpath' onclick="resetPath();">Reset Path</button></p>
 </div>
