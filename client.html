@@ -191,6 +191,7 @@ function animate(obj){
 		$('.'+animated).transition({ x:0, y: 0 },0,'ease');
 
 		if(end!='antenna3'){
+			degree=0;
 			$('.'+animated).fadeIn().transition({ x:posx, y: posy },3000,'ease').fadeOut();
 		}
 		else{
