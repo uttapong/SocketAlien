@@ -183,7 +183,7 @@ function animate(obj){
 
 		console.log(obj.x);
 		console.log(obj.y);
-	 console.log("----------------");
+	 	console.log("----------------");
 		console.log(posx);
 		console.log(posy);
 
@@ -195,11 +195,16 @@ function animate(obj){
 			$('.'+animated).fadeIn().transition({ x:posx, y: posy },3000,'ease').fadeOut();
 		}
 		else{
+			$('.plane').css('left',233);
+			$('.plane').css('top',278);
+			$('.plane>img').css('transform','rotate(0deg)');
+
 			$('.'+animated).fadeIn().transition({ x:posx, y: posy },3000,'ease').fadeOut();
-			$('.plane').transition({ x:202, y: 244},0,'ease');
-			//$('.plane').css('left',posx);
-			//$('.plane').css('top',posy);
-			$('.plane').transition({ scale: 1, delay: 4800 }).fadeIn().transition({ x:400, y: -60 },3000,'ease').fadeOut()
+
+			
+			$('.plane').transition({ x:0, y: 0},0,'ease');
+			
+			$('.plane').transition({ scale: 1, delay: 4800 }).fadeIn().transition({ x:380, y: -400 },3000,'ease').fadeOut()
 		}
 
 		
