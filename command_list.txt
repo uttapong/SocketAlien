@@ -7,14 +7,3 @@ set NotifyMode=On
 set NotifyTime=1
 AntennaSequence = 0 1
 set AutoMode=On
-
-<Alien-RFID-Tag-List>
-<Alien-RFID-Tag>
-  <TagID>E200 3411 B802 0114 1732 1270</TagID>
-  <DiscoveryTime>2013/12/24 13:48:39</DiscoveryTime>
-  <LastSeenTime>2013/12/24 13:48:39</LastSeenTime>
-  <Antenna>0</Antenna>
-  <ReadCount>1</ReadCount>
-  <Protocol>2</Protocol>
-</Alien-RFID-Tag>
-</Alien-RFID-Tag-List>
